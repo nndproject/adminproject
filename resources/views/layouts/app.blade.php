@@ -6,17 +6,41 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <!-- Twitter -->
+   <meta name="twitter:site" content="@fernand0ferry">
+   <meta name="twitter:creator" content="@nndteamdev">
+   <meta name="twitter:card" content="summary_large_image">
+   <meta name="twitter:title" content="Ferry Fernando">
+   <meta name="twitter:description" content="Deskripsi dari aplikasi">
+   <meta name="twitter:image" content="http://office.arionindonesia.id/favicon/favicon.ico">
+   <!-- Facebook -->
+   <meta property="og:url" content="https://www.instagram.com/fernandoferry/">
+   <meta property="og:title" content="Ferry Fernando">
+   <meta property="og:description" content="Deskripsi dari aplikasi">
+   <meta property="og:image" content="http://office.arionindonesia.id/favicon/favicon.ico">
+   <meta property="og:image:secure_url" content="http://office.arionindonesia.id/favicon/favicon.ico">
+   <meta property="og:image:type" content="image/png">
+   <meta property="og:image:width" content="1200">
+   <meta property="og:image:height" content="600">
+   <!-- Meta -->
+   <meta name="description" content="Deskripsi dari aplikasi">
+   <meta name="author" content="Ferry Fernando">
+   <meta name="keywords" content="fernandoferry, nndproject, 0816554176"/>
+   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Huro :: Blank Template</title>
+    <title>ADM ::  @yield('title')</title>
     <link rel="icon" type="image/png" href="assets/img/favicon.png" />
 
-    <!--Core CSS -->
-    <link rel="stylesheet" href="assets/css/app.css" />
-    <link rel="stylesheet" href="assets/css/main.css" />
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700" rel="stylesheet" />
+    
+    <!--Core CSS -->
+    <link rel="stylesheet" href="{{asset('assets/css/app.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/main.css')}}" />
+    
+    @yield('style')
 
     <!--Mapbox styles-->
 </head>
@@ -44,8 +68,8 @@
                     </div>
 
                     <a class="navbar-item is-brand" href="index.html">
-                        <img class="light-image" src="assets/img/logos/logo/logo.svg" alt="">
-                        <img class="dark-image" src="assets/img/logos/logo/logo-light.svg" alt="">
+                        <img class="light-image" src="{{asset('assets/img/logos/logo/logo.svg')}}" alt="">
+                        <img class="dark-image" src="{{asset('assets/img/logos/logo/logo-light.svg')}}" alt="">
                     </a>
 
                     <div class="brand-end">
@@ -2872,7 +2896,7 @@
             </div>
         </div>
         <!-- Content Wrapper -->
-        <div id="app-onboarding" class="view-wrapper is-webapp" data-page-title="Blank Template" data-naver-offset="214" data-menu-item="#layouts-navbar-menu" data-mobile-item="#home-sidebar-menu-mobile">
+        <div id="app-onboarding" class="view-wrapper is-webapp" data-page-title="@yield('title')" data-naver-offset="214" data-menu-item="#layouts-navbar-menu" data-mobile-item="#home-sidebar-menu-mobile">
 
             <div class="page-content-wrapper">
                 <div class="page-content is-relative">
@@ -2880,7 +2904,7 @@
                     <div class="page-title has-text-centered is-webapp">
 
                         <div class="title-wrap">
-                            <h1 class="title is-4">Blank Template</h1>
+                            <h1 class="title is-4">@yield('title')</h1>
                         </div>
 
                         <div class="toolbar ml-auto">
@@ -2971,7 +2995,8 @@
                     </div>
 
                     <div class="page-content-inner">
-
+                        
+                        @yield('content')
                     </div>
 
                 </div>
@@ -2983,37 +3008,23 @@
         <!--Load Mapbox-->
 
         <!-- Concatenated plugins -->
-        <script src="assets/js/app.js"></script>
-
+        {{-- <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script> --}}
+        <script src="{{asset('assets/js/app.js')}}"></script>
         <!-- Huro js -->
-        <script src="assets/js/functions.js"></script>
-        <script src="assets/js/main.js" async></script>
-        <script src="assets/js/components.js" async></script>
-        <script src="assets/js/popover.js" async></script>
-        <script src="assets/js/widgets.js" async></script>
+        <script src="{{asset('assets/js/functions.js')}}"></script>
+        <script src="{{asset('assets/js/main.js')}}"></script>
+        {{-- <script src="assets/js/components.js"></script> --}}
 
+        <script src="{{asset('assets/nat/popover.js')}}" async></script>
+        <script src="{{asset('assets/nat/widgets.js')}}" async></script>
+        
 
         <!-- Additional Features -->
-        <script src="assets/js/touch.js" async></script>
+        <script src="{{asset('assets/nat/touch.js')}}" async></script>
 
         <!-- Landing page js -->
 
         <!-- Dashboards js -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         <!-- Charts js -->
@@ -3033,10 +3044,8 @@
 
 
 
-
-
-
-        <script src="assets/js/syntax.js" async></script>
+        <script src="{{asset('assets/nat/syntax.js')}}" async></script>
+        @yield('script')
     </div>
 </body>
 
